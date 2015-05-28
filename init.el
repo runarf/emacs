@@ -1,15 +1,22 @@
 (ido-mode 1)
+(setq ido-enable-flex-matching t)
 (tool-bar-mode 0)
 (setq-default TeX-master nil)
 (load-theme 'leuven t)
 
-(getenv "PATH")
- (setenv "PATH"
-	 (concat
-	  "/usr/local/texlive/2014/bin/x86_64-linux" ":"
-	  (getenv "PATH")))
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
+(setq mouse-wheel-progressive-speed nil)
+
+;(getenv "PATH")
+; (setenv "PATH"
+;	 (concat
+;	  "/usr/local/texlive/2014/bin/x86_64-linux" ":"
+;	  (getenv "PATH")))
 
  (setq ring-bell-function 'ignore)
+
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex) 
+(setq reftex-plug-into-auctex t)
 
 (let ((default-directory "~/.emacs.d/runars/"))
   (normal-top-level-add-to-load-path '("."))
